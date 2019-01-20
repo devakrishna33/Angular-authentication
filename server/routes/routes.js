@@ -40,4 +40,42 @@ router.post('/login', (req, res) => {
   })
 });
 
+
+router.get('/doctors', (req, res) => {
+  const doctors = [
+    {
+      name: 'David Tennant',
+      speciality: 'Hair',
+    },
+    {
+      name: 'Matt Smith',
+      speciality: 'Run',
+    },
+    {
+      name: 'Peter Capaldi',
+      speciality: 'Anger',
+    },
+  ];
+  res.send(doctors);
+});
+
+
+router.get('/companion', (req, res) => {
+  const companion = [
+    {
+      name: 'Rose Taylor',
+      end: 'Love',
+    },
+    {
+      name: 'Martha',
+      end: 'Left',
+    },
+    {
+      name: 'Donna',
+      end: 'Forgot',
+    },
+  ];
+  res.send(companion);
+});
+
 module.exports = router;
