@@ -37,7 +37,7 @@ router.post('/login', (req, res) => {
     if( !(data.password == req.body.password) ){
       return res.status(401).send("Incorrect Password");
     }
-    return res.status(200).send("success");
+    return res.status(200).send(data);
   })
 });
 
