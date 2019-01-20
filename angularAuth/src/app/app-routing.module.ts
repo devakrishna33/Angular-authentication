@@ -8,12 +8,12 @@ import { CompanionComponent } from './companion/companion.component';
 const routes: Routes = [
   {
     path: '', component: DoctorComponent, pathMatch: 'full',
-  }
+  },
   {
     path: 'doctor', component: DoctorComponent,
   },
   {
-    path: 'compainon', component: CompanionComponent,
+    path: 'companinon', component: CompanionComponent,
   },
   {
     path: 'register', component: RegisterComponent,

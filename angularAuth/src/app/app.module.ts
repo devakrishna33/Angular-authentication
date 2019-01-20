@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CompanionComponent } from './companion/companion.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CompanionComponent } from './companion/companion.component';
     RegisterComponent,
     LoginComponent,
     DoctorComponent,
-    CompanionComponent
+    CompanionComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
