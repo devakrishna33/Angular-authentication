@@ -4,6 +4,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CompanionComponent } from './companion/companion.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
     path: 'doctor', component: DoctorComponent,
   },
   {
-    path: 'companion', component: CompanionComponent,
+    path: 'companion', component: CompanionComponent, canActivate: [AuthGuard]
   },
   {
     path: 'register', component: RegisterComponent,

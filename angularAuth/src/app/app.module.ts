@@ -8,9 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CompanionComponent } from './companion/companion.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { DoctorService } from './doctor.service';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,13 @@ import { DoctorService } from './doctor.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [AuthService, DoctorService],
+  providers: [AuthService, DoctorService, AuthGuard,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true,
+  },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
