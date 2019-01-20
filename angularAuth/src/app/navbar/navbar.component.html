@@ -5,8 +5,9 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
         <li routerLink='/doctor' routerLinkActive="active"><a>Doctor</a></li>
         <li routerLink='/companion' routerLinkActive="active"><a>Companion</a></li>
-        <li routerLink='/login' routerLinkActive="active"><a>Login</a></li>
-        <li routerLink='/register' routerLinkActive="active"><a>Register</a></li>
+        <li *ngIf="!authService.loggedIn()" routerLink='/login' routerLinkActive="active"><a>Login</a></li>
+        <li  *ngIf="!authService.loggedIn()" routerLink='/register' routerLinkActive="active"><a>Register</a></li>
+        <li  *ngIf="authService.loggedIn()" (click)="authService.logout()" routerLinkActive="active"><a>Log out</a></li>
       </ul>
     </div>
   </div>
