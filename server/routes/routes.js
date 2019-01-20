@@ -61,7 +61,7 @@ router.get('/doctors', (req, res) => {
 });
 
 
-router.get('/companion', (req, res) => {
+router.get('/companions', (req, res) => {
   const companion = [
     {
       name: 'Rose Taylor',

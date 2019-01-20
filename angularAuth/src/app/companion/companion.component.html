@@ -1,3 +1,8 @@
-<p>
-  companion works!
-</p>
+<div class="container">
+  <ul class="collection">
+    <li class="collection-item" *ngFor="let companion of companions">
+      {{companion.name}}
+      <a href="#!" class="secondary-content">{{companion.end}}</a>
+    </li>
+  </ul>
+</div>

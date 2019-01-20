@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-companion',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanionComponent implements OnInit {
 
-  constructor() { }
+  companions=[];
+
+  constructor(private doctorService:DoctorService) { }
 
   ngOnInit() {
+    this.doctorService.getCompanions()
+    .subscribe(
+      res => {
+        this.companions = res;
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 }

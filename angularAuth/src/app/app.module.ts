@@ -10,6 +10,7 @@ import { CompanionComponent } from './companion/companion.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { DoctorService } from './doctor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AuthService } from './auth.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, DoctorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
