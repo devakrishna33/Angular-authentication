@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/register', (req, res) => {
   const userData = new UserModel(req.body);
+  console.log("hi");
   userData.save((err, data) => {
     if(err){
       console.log(err);

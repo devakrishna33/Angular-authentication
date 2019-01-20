@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'doctor', component: DoctorComponent,
   },
   {
-    path: 'companinon', component: CompanionComponent,
+    path: 'companion', component: CompanionComponent,
   },
   {
     path: 'register', component: RegisterComponent,
