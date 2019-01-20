@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/user.model');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const db = "mongodb://devakrishna33:aaaaaaaa8@ds159377.mlab.com:59377/doctorsdb";
 mongoose.connect(db, err => {
   console.log(err);
@@ -20,7 +21,11 @@ router.post('/register', (req, res) => {
       return;
     }
     else{
-      res.status(200).send(data);
+      const payload = {
+        subject: data._id,
+      };
+      const token = jwt.sign(payload, 'secretKey', )
+      return res.status(200).send({token});
     }
   })
 });
@@ -37,7 +42,11 @@ router.post('/login', (req, res) => {
     if( !(data.password == req.body.password) ){
       return res.status(401).send("Incorrect Password");
     }
-    return res.status(200).send(data);
+    const payload = {
+      subject: data._id,
+    };
+    const token = jwt.sign(payload, 'secretKey', )
+    return res.status(200).send({token});
   })
 });
 
@@ -57,7 +66,7 @@ router.get('/doctors', (req, res) => {
       speciality: 'Anger',
     },
   ];
-  res.send(doctors);
+  return res.send(doctors);
 });
 
 
@@ -76,7 +85,7 @@ router.get('/companions', (req, res) => {
       end: 'Forgot',
     },
   ];
-  res.send(companion);
+  return res.send(companion);
 });
 
 module.exports = router;
